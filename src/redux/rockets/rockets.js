@@ -1,9 +1,10 @@
 import URL from './API';
 
 const GET_ROCKETS = 'GET_ROCKETS';
-const SHOW_ROCKET = 'SHOW_ROCKET';
+const ROCKETS_SUCCESS = 'GET_ROCKETS_SUCCESS';
+const ROCKETS_FAILED = 'GET_ROCKETS_FAILED';
 
-const initialState = { rockets: [] };
+const initialState = { rockets: [], loading: true, error: null };
 
 export const getRockets = () => (dispatch) => {
   dispatch({ type: GET_ROCKETS });
@@ -14,13 +15,16 @@ export const getRockets = () => (dispatch) => {
       const rockets = await fetching.json();
       const payload = rockets.map((rocket) => ({
         id: rocket.id,
-        name: rocket.name,
-        type: rocket.type,
+        name: rocket.rocket_name,
+        type: rocket.rocket_type,
         images: rocket.flickr_images,
       }));
-      dispatch({ type: SHOW_ROCKET, payload });
-    } catch (error) {
-      throw new Error(error.message);
+      dispatch({ type: ROCKETS_SUCCESS, payload });
+    } catch (e) {
+      dispatch({
+        type: ROCKETS_FAILED,
+        payload: 'error',
+      });
     }
   };
   fetchRockets();
@@ -29,9 +33,11 @@ export const getRockets = () => (dispatch) => {
 export const rocketReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
-      return [...state, action.payload];
-    case SHOW_ROCKET:
-      return { ...state, rockets: action.payload };
+      return { ...state, loading: true };
+    case ROCKETS_SUCCESS:
+      return { ...state, loading: false, rockets: action.payload };
+    case ROCKETS_FAILED:
+      return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }

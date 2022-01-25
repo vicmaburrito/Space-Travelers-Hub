@@ -11,7 +11,7 @@ import Header from './components/Header/Header';
 function App() {
   return (
     <BrowserRouter>
-      <div className="mx-5 mt-3">
+      <div className="mt-3">
         <Header />
       </div>
       <Routes>

@@ -2,3 +2,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+#root {
+  margin-left: 5%;
+  margin-right: 5%;
+}

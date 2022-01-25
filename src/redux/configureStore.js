@@ -5,7 +5,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import missionsReducer from './missions/missions';
-import rocketReducer from './rockets/rockets';
+import { rocketReducer } from './rockets/rockets';
 
 const reducer = combineReducers({
   missions: missionsReducer,

@@ -5,7 +5,7 @@ import './Rockets.css';
 
 const Rockets = () => {
   const dispatch = useDispatch();
-  const { rockets } = useSelector((state) => state.rocketReducer);
+  const { loading, rockets } = useSelector((state) => state.rocketReducer);
 
   useEffect(() => {
     dispatch(getRockets());
@@ -13,7 +13,11 @@ const Rockets = () => {
 
   return (
     <div className="container">
-      {
+      {loading ? (
+        <div className="d-flex justify-content-center mt-5">
+          <span className="mt-5 h3 font-weight-bold">Loading...</span>
+        </div>
+      ) : (
         rockets.map((rocket) => (
           <div key={rocket.id} className="d-flex rocket-item pt-4">
             <div>
@@ -25,7 +29,7 @@ const Rockets = () => {
             </div>
           </div>
         ))
-      }
+      )}
     </div>
   );
 };

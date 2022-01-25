@@ -5,11 +5,11 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import missionsReducer from './missions/missions';
-import rocketReducer from './rockets/rockets';
+import { rocketReducer } from './rockets/rockets';
 
 const reducer = combineReducers({
   missions: missionsReducer,
-  rockets: rocketReducer,
+  rocketReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

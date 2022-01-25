@@ -2,7 +2,7 @@ import URL from './API';
 
 const GET_ROCKETS = 'GET_ROCKETS';
 const SHOW_ROCKET = 'SHOW_ROCKET';
-// const FETCH_ROCKETS = 'Space-Travelers-Hub/rockets/FETCH_ROCKETS';
+
 const initialState = { rockets: [] };
 
 export const getRockets = () => (dispatch) => {

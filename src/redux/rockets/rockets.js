@@ -3,6 +3,7 @@ import URL from './API';
 const GET_ROCKETS = 'GET_ROCKETS';
 const SHOW_ROCKET = 'SHOW_ROCKET';
 // const FETCH_ROCKETS = 'Space-Travelers-Hub/rockets/FETCH_ROCKETS';
+const initialState = { rockets: [] };
 
 export const getRockets = () => (dispatch) => {
   dispatch({ type: GET_ROCKETS });
@@ -14,7 +15,7 @@ export const getRockets = () => (dispatch) => {
       const payload = rockets.map((rocket) => ({
         id: rocket.id,
         name: rocket.name,
-        desc: rocket.description,
+        type: rocket.type,
         images: rocket.flickr_images,
       }));
       dispatch({ type: SHOW_ROCKET, payload });
@@ -25,12 +26,12 @@ export const getRockets = () => (dispatch) => {
   fetchRockets();
 };
 
-export const rocketReducer = (state = [], action) => {
+export const rocketReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
       return [...state, action.payload];
     case SHOW_ROCKET:
-      return {};
+      return { ...state, rockets: action.payload };
     default:
       return state;
   }

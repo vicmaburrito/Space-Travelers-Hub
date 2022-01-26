@@ -3,6 +3,7 @@ import URL from './API';
 const GET_ROCKETS = 'GET_ROCKETS';
 const ROCKETS_SUCCESS = 'GET_ROCKETS_SUCCESS';
 const ROCKETS_FAILED = 'GET_ROCKETS_FAILED';
+const RESERVE_ROCKET = 'RESERVE_ROCKET';
 
 const initialState = { rockets: [], loading: true, error: null };
 
@@ -39,6 +40,13 @@ export const rocketReducer = (state = initialState, action) => {
       return { ...state, loading: false, rockets: action.payload };
     case ROCKETS_FAILED:
       return { ...state, loading: false, error: action.payload };
+    case RESERVE_ROCKET:
+      return {
+        ...state,
+        rockets: state.rockets.map((rocket) => (
+          rocket.id === action.payload ? { ...rocket, reserved: true } : rocket
+        )),
+      };
     default:
       return state;
   }

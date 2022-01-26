@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRockets } from '../../redux/rockets/rockets';
+import { getRockets, reserveRocket } from '../../redux/rockets/rockets';
 import './Rockets.css';
 
 const Rockets = () => {
@@ -27,7 +27,7 @@ const Rockets = () => {
               <h4>{rocket.name}</h4>
               <span>{rocket.desc}</span>
               <div className="mt-4">
-                <button type="submit" className="btn btn-primary">Reserve Rocket</button>
+                <button type="submit" onClick={() => reserveRocket(rocket.id)} className="btn btn-primary">Reserve Rocket</button>
               </div>
             </div>
           </div>

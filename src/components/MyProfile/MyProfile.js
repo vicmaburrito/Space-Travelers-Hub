@@ -33,7 +33,7 @@ function MyProfile() {
         ) : (
           <ul className="data-list p-3">
             <div className="data-list-container d-flex justify-content-start align-items-center">
-              <li>No reservtaions</li>
+              <li>No reservations</li>
             </div>
           </ul>
         )}

@@ -3,7 +3,7 @@
 }
 
 .data-container {
-  width: 30%;
+  width: 45%;
 }
 
 .data-list {
@@ -20,4 +20,13 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+}
+
+.padLeft-0 {
+  padding-left: 0;
+}
+
+.padLeftBottom {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
 }

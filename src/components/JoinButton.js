@@ -5,7 +5,6 @@ import { joinMission, leaveMission } from '../redux/missions/missions';
 
 function JoinButton({ reserved, id }) {
   const dispatch = useDispatch();
-  console.log(reserved, id);
 
   const dispatchJoinMission = (id) => {
     dispatch(joinMission(id));

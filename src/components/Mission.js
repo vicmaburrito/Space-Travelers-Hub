@@ -5,7 +5,6 @@ import './Missions.css';
 
 const Mission = (mission) => {
   const element = mission.mission; /* eslint-disable-line */
-  console.log(element);
 
   return (
     <tr className="body_row">

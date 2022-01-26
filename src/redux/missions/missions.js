@@ -52,7 +52,6 @@ const missionsReducer = (state = [], action) => {
     case LEAVE_MISSION: {
       const leaveMission = state.map((mission) => {
         if (mission.id !== action.payload) return mission;
-        console.log({ ...mission, reserved: false });
         return { ...mission, reserved: false };
       });
       return leaveMission;

@@ -27,7 +27,6 @@ export const getRockets = () => (dispatch) => {
         id: rocket.id,
         name: rocket.rocket_name,
         desc: rocket.description,
-        type: rocket.rocket_type,
         images: rocket.flickr_images,
       }));
       dispatch({ type: ROCKETS_SUCCESS, payload });

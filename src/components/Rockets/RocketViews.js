@@ -5,7 +5,7 @@ import { cancelReservation, reserveRocket } from '../../redux/rockets/rockets';
 
 const Rockets = () => {
   const dispatch = useDispatch();
-  const { loading, rockets, error } = useSelector((state) => state.rocketsReducer);
+  const { loading, rockets, error } = useSelector((state) => state.rocketReducer);
 
   const onReserveRocket = (id) => {
     dispatch(reserveRocket(id));
@@ -16,21 +16,21 @@ const Rockets = () => {
   };
   return (
     <div className="container">
-      <div className="d-flex justify-content-center mt-5">
-        {error && <span className="mt-5 h3 font-weight-bold">{error}</span>}
-        {loading ? (
+      {error && <span className="mt-5 h3 font-weight-bold">{error}</span>}
+      {loading ? (
+        <div className="d-flex justify-content-center mt-5">
           <span className="mt-5 h3 font-weight-bold">Loading...</span>
-        ) : (
-          rockets.map((rocket) => (
-            <Rocket
-              key={rocket.id}
-              rocket={rocket}
-              reserveRocket={onReserveRocket}
-              cancelReservation={onCancelReservation}
-            />
-          ))
-        )}
-      </div>
+        </div>
+      ) : (
+        rockets.map((rocket) => (
+          <Rocket
+            key={rocket.id}
+            rocket={rocket}
+            reserveRocket={onReserveRocket}
+            cancelReservation={onCancelReservation}
+          />
+        ))
+      )}
     </div>
   );
 };

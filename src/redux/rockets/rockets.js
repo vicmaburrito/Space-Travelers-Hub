@@ -7,6 +7,12 @@ const RESERVE_ROCKET = 'RESERVE_ROCKET';
 
 const initialState = { rockets: [], loading: true, error: null };
 
+export const reserveRocket = (id) => ({
+  type: RESERVE_ROCKET,
+  payload: id,
+}
+);
+
 export const getRockets = () => (dispatch) => {
   dispatch({ type: GET_ROCKETS });
 

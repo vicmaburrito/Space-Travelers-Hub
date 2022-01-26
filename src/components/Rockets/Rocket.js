@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Rockets.css';
 
-const Rockets = ({ rocket, reserveRocket, cancelReservation }) => (
+const Rocket = ({ rocket, reserveRocket, cancelReservation }) => (
   <div key={rocket.id} className="d-flex rocket-item pt-4">
     <div>
       <img alt="rocket" src={rocket.images[0]} className="rocket-img" />
@@ -17,4 +17,4 @@ const Rockets = ({ rocket, reserveRocket, cancelReservation }) => (
   </div>
 );
 
-export default Rockets;
+export default Rocket;

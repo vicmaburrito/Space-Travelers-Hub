@@ -1,11 +1,17 @@
 import axios from 'axios';
 
 const FETCH_MISSIONS = 'Space-Travelers-Hub/missions/FETCH_MISSIONS';
+const JOIN_MISSION = 'Space-Travelers-Hub/missions/JOIN_MISSION';
 
 // ACTIONS
 
 export const fetchMissions = (payload) => ({
   type: FETCH_MISSIONS,
+  payload,
+});
+
+export const joinMission = (payload) => ({
+  type: JOIN_MISSION,
   payload,
 });
 
@@ -29,6 +35,13 @@ const missionsReducer = (state = [], action) => {
         description: mission.description,
       }));
       return [...missionsList, ...filterMissions];
+    case JOIN_MISSION:
+      const newMission = state.map((mission) => { /*eslint-disable-line*/
+        if (mission.id !== action.payload) return mission;
+        console.log({ ...mission, reserved: true });
+        return { ...mission, reserved: true };
+      });
+      return newMission;
     default:
       return missionsList;
   }

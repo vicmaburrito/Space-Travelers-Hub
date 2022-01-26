@@ -21,14 +21,22 @@ function MyProfile() {
         </ul>
       </div>
       <div className="data-container">
-        <h2>My Missions</h2>
-        <ul className="data-list p-3">
-          {reservedRockets.map((rocket) => (
-            <div className="data-list-container d-flex justify-content-start align-items-center" key={rocket.id}>
-              <li>{rocket.name}</li>
+        <h2>My Rockets</h2>
+        {reservedRockets.length ? (
+          <ul className="data-list p-3">
+            {reservedRockets.map((rocket) => (
+              <div className="data-list-container d-flex justify-content-start align-items-center" key={rocket.id}>
+                <li>{rocket.name}</li>
+              </div>
+            ))}
+          </ul>
+        ) : (
+          <ul className="data-list p-3">
+            <div className="data-list-container d-flex justify-content-start align-items-center">
+              <li>No reservtaions</li>
             </div>
-          ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </div>
   );

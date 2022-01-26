@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Missions from './components/Missions';
 import MyProfile from './components/MyProfile';
-import Rockets from './components/Rockets/Rockets';
+import Rockets from './components/Rockets/RocketViews';
 
 import Header from './components/Header/Header';
 

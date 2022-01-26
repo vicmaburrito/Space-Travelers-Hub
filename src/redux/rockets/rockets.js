@@ -3,8 +3,15 @@ import URL from './API';
 const GET_ROCKETS = 'GET_ROCKETS';
 const ROCKETS_SUCCESS = 'GET_ROCKETS_SUCCESS';
 const ROCKETS_FAILED = 'GET_ROCKETS_FAILED';
+const RESERVE_ROCKET = 'RESERVE_ROCKET';
 
 const initialState = { rockets: [], loading: true, error: null };
+
+export const reserveRocket = (id) => ({
+  type: RESERVE_ROCKET,
+  payload: id,
+}
+);
 
 export const getRockets = () => (dispatch) => {
   dispatch({ type: GET_ROCKETS });
@@ -16,6 +23,7 @@ export const getRockets = () => (dispatch) => {
       const payload = rockets.map((rocket) => ({
         id: rocket.id,
         name: rocket.rocket_name,
+        desc: rocket.description,
         type: rocket.rocket_type,
         images: rocket.flickr_images,
       }));
@@ -38,6 +46,13 @@ export const rocketReducer = (state = initialState, action) => {
       return { ...state, loading: false, rockets: action.payload };
     case ROCKETS_FAILED:
       return { ...state, loading: false, error: action.payload };
+    case RESERVE_ROCKET:
+      return {
+        ...state,
+        rockets: state.rockets.map((rocket) => (
+          rocket.id === action.payload ? { ...rocket, reserved: true } : rocket
+        )),
+      };
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import './Header.css';
 
 function Header() {
   return (
-    <nav className="d-flex align-items-center">
+    <nav className="d-flex align-items-center pb-4 border-bottom">
       <img src={planet} alt="logo" />
       <h1 className="mx-3">Space Traveler&apos;s Hub</h1>
       <div className="d-flex list-unstyled margin-left">

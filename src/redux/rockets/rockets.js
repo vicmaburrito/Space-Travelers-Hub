@@ -4,14 +4,17 @@ const GET_ROCKETS = 'GET_ROCKETS';
 const ROCKETS_SUCCESS = 'GET_ROCKETS_SUCCESS';
 const ROCKETS_FAILED = 'GET_ROCKETS_FAILED';
 const RESERVE_ROCKET = 'RESERVE_ROCKET';
+const CANCEL_ROCKET_RESERVATION = 'CANCEL_ROCKET_RESERVATION';
 
 const initialState = { rockets: [], loading: true, error: null };
 
-export const reserveRocket = (id) => ({
-  type: RESERVE_ROCKET,
-  payload: id,
-}
-);
+export const reserveRocket = (id) => (dispatch) => {
+  dispatch({ type: RESERVE_ROCKET, payload: id });
+};
+
+export const cancelReservation = (id) => (dispatch) => {
+  dispatch({ type: CANCEL_ROCKET_RESERVATION, payload: id });
+};
 
 export const getRockets = () => (dispatch) => {
   dispatch({ type: GET_ROCKETS });
@@ -24,7 +27,6 @@ export const getRockets = () => (dispatch) => {
         id: rocket.id,
         name: rocket.rocket_name,
         desc: rocket.description,
-        type: rocket.rocket_type,
         images: rocket.flickr_images,
       }));
       dispatch({ type: ROCKETS_SUCCESS, payload });
@@ -51,6 +53,13 @@ export const rocketReducer = (state = initialState, action) => {
         ...state,
         rockets: state.rockets.map((rocket) => (
           rocket.id === action.payload ? { ...rocket, reserved: true } : rocket
+        )),
+      };
+    case CANCEL_ROCKET_RESERVATION:
+      return {
+        ...state,
+        rockets: state.rockets.map((rocket) => (
+          rocket.id === action.payload ? { ...rocket, reserved: false } : rocket
         )),
       };
     default:

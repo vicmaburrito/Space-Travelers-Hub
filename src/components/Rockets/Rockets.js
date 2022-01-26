@@ -23,9 +23,12 @@ const Rockets = () => {
             <div>
               <img alt="rocket" src={rocket.images[0]} className="rocket-img" />
             </div>
-            <div className="ml-3 font-w">
+            <div className="info-section ml-3 font-w">
               <h4>{rocket.name}</h4>
-              <p>{rocket.type}</p>
+              <span>{rocket.desc}</span>
+              <div className="mt-4">
+                <button type="submit" className="btn btn-primary">Reserve Rocket</button>
+              </div>
             </div>
           </div>
         ))

@@ -16,6 +16,7 @@ export const getRockets = () => (dispatch) => {
       const payload = rockets.map((rocket) => ({
         id: rocket.id,
         name: rocket.rocket_name,
+        desc: rocket.description,
         type: rocket.rocket_type,
         images: rocket.flickr_images,
       }));

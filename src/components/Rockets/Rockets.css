@@ -1,5 +1,5 @@
 .rocket-img {
-  width: 50vh;
+  width: 350px;
   height: 35vh;
 }
 
@@ -9,4 +9,8 @@
 
 .font-w h4 {
   font-weight: 600;
+}
+
+.info-section {
+  width: 65%;
 }

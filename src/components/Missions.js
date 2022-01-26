@@ -19,7 +19,6 @@ function Missions() {
   ));
 
   return (
-    // <div className="h2 d-flex justify-content-center">Hi from Missions</div>
     <table className="border my-5">
       <thead>
         <tr>

@@ -18,12 +18,19 @@ const Rockets = () => {
     <div className="container">
       <div className="d-flex justify-content-center mt-5">
         {error && <span className="mt-5 h3 font-weight-bold">{error}</span>}
-        <span className="mt-5 h3 font-weight-bold">Loading...</span>
+        {loading ? (
+          <span className="mt-5 h3 font-weight-bold">Loading...</span>
+        ) : (
+          rockets.map((rocket) => (
+            <Rocket
+              key={rocket.id}
+              rocket={rocket}
+              reserveRocket={onReserveRocket}
+              cancelReservation={onCancelReservation}
+            />
+          ))
+        )}
       </div>
-      <Rocket
-        reserveRocket={onReserveRocket}
-        cancelReservation={onCancelReservation}
-      />
     </div>
   );
 };

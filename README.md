@@ -23,11 +23,6 @@ Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<!-- <h2>Live Demo</h2>
-
-<a href="https://affectionate-mirzakhani-76e566.netlify.app/" rel="noopener noreferrer">Live Demo Link</a> -->
-
-
 <h2>📚 Getting Started</h2>
 
 To get a local copy up and running follow these simple example steps.
@@ -41,7 +36,7 @@ Be sure to have git set up on your local machine. If you are unfamiliar with the
 
 Fork a copy to your repository and clone it locally: `
  $ git clone git@github.com:vicmaburrito/Space-Travelers-Hub.git
-$ cd bookstore `
+$ cd Space-Travelers-Hub `
 
 <h2>Install</h2>
 

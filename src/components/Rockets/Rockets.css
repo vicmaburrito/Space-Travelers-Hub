@@ -14,3 +14,11 @@
 .info-section {
   width: 65%;
 }
+
+.status-reserved {
+  font-weight: 600;
+  width: 11%;
+  background-color: #00b0f6;
+  border-radius: 10%;
+  color: white;
+}

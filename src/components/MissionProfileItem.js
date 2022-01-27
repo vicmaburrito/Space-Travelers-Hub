@@ -13,5 +13,9 @@ function MissionProfileItem({ name }) {
 export default MissionProfileItem;
 
 MissionProfileItem.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
+};
+
+MissionProfileItem.defaultProps = {
+  name: undefined,
 };

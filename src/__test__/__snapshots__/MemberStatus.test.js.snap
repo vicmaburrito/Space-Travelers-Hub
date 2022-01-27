@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<span
+  className="p-1 bg-secondary text-white rounded"
+>
+  NOT A MEMBER
+</span>
+`;

@@ -11,7 +11,7 @@ const Rocket = ({ rocket, reserveRocket, cancelReservation }) => (
       <h4>{rocket.name}</h4>
       <>
         {rocket.reserved
-        && <div><span className="d-flex justify-content-end">Reserved</span></div>}
+        && <div><button type="submit" className="d-flex border-0 justify-content-start status-reserved px-1">Reserved</button></div>}
         <span>{rocket.desc}</span>
       </>
       <div className="mt-4">
